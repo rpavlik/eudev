@@ -39,6 +39,15 @@
 #define RLIMIT_RTTIME 15
 #endif
 
+#ifndef LINE_MAX
+#define LINE_MAX 2048
+#endif
+
+#if !defined(RLIMIT_NLIMITS) && defined(RLIM_NLIMITS)
+/* android */
+#define RLIMIT_NLIMITS RLIM_NLIMITS
+#endif
+
 /* If RLIMIT_RTTIME is not defined, then we cannot use RLIMIT_NLIMITS as is */
 #define _RLIMIT_MAX (RLIMIT_RTTIME+1 > RLIMIT_NLIMITS ? RLIMIT_RTTIME+1 : RLIMIT_NLIMITS)
 
