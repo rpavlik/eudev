@@ -70,6 +70,11 @@
 #include "random-util.h"
 #include "terminal-util.h"
 
+#if !defined(IPTOS_LOWCOST) && defined(IPTOS_MINCOST)
+/* android */
+#define IPTOS_LOWCOST IPTOS_MINCOST
+#endif
+
 /* Put this test here for a lack of better place */
 assert_cc(EAGAIN == EWOULDBLOCK);
 
