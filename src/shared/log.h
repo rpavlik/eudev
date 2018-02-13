@@ -25,6 +25,9 @@
 #include <errno.h>
 
 #include "macro.h"
+#ifdef __ANDROID__
+extern const char *program_invocation_short_name;
+#endif
 
 typedef enum LogTarget{
         LOG_TARGET_CONSOLE,

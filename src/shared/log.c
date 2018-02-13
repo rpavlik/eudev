@@ -38,6 +38,10 @@
 
 #define SNDBUF_SIZE (8*1024*1024)
 
+#ifdef __ANDROID__
+const char *program_invocation_short_name = "";
+#endif
+
 static LogTarget log_target = LOG_TARGET_CONSOLE;
 static int log_max_level = LOG_INFO;
 static int log_facility = LOG_DAEMON;
