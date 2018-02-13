@@ -37,6 +37,12 @@
 #include "missing.h"
 #include "fileio.h"
 
+#ifdef __ANDROID__
+static char * get_current_dir_name(void) {
+        return getcwd(NULL, 0);
+}
+#endif
+
 bool path_is_absolute(const char *p) {
         return p[0] == '/';
 }
